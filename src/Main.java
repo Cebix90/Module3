@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,5 +27,22 @@ public class Main {
 //        for (String word : wordCountMap.keySet()) {
 //            System.out.println(word + ": " + wordCountMap.get(word));
 //        }
+
+        Student student1 = new Student("John", "Doe", 20, 170);
+        Student student2 = new Student("Alice", "Smith", 22, 165);
+        Student student3 = new Student("Bob", "Johnson", 21, 175);
+        Student student4 = new Student("Eva", "Williams", 23, 160);
+        Student student5 = new Student("Jorge", "Doe", 19, 170);
+
+        List<Student> studentList = new ArrayList<>(List.of(student1, student2, student3, student4, student5));
+
+        for (Student student : studentList){
+            System.out.println(student);
+        }
+        System.out.println();
+
+        Collections.sort(studentList);
+
+        studentList.forEach(System.out::println);
     }
 }
