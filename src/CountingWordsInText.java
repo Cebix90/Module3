@@ -4,7 +4,7 @@ public class CountingWordsInText {
     public static HashMap<String, Integer> countWords(String text){
         HashMap<String, Integer> hashMap = new HashMap<>();
 
-        String[] words = text.replace(".", "").replace(",", "").toLowerCase().split("\\s+");
+        String[] words = text.replaceAll("[,.!?-]", "").toLowerCase().split("\\s+");
 
         for (String word : words) {
             if(!hashMap.containsKey(word)) {
