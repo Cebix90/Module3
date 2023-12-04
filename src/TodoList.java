@@ -1,38 +1,28 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class TodoList {
-    private final String[] tasks;
-    private int size;
+    private final List<String> tasks;
     public TodoList() {
-        tasks = new String[10];
-        size = 0;
+        tasks = new ArrayList<>();
     }
 
     public void add(String task){
-        if (size < tasks.length) {
-            tasks[size++] = task;
-        } else {
-            System.out.println("TodoList is full. Cannot add more tasks.");
-        }
+        tasks.add(task);
     }
 
     public void print() {
-        for (int i = 0; i < tasks.length; i++){
-            if(tasks[i] != null)
-                System.out.println("Task " + (i+1) + ": " + tasks[i]);
-            else
-                break;
+        for (int i = 0; i < tasks.size(); i++){
+            System.out.println("Task " + (i+1) + ": " + tasks.get(i));
         }
         System.out.println();
     }
 
     public void remove(int number){
-        if (number >= 1 && number <= size) {
-            for (int i = number - 1; i < size - 1; i++) {
-                tasks[i] = tasks[i + 1];
-            }
-            tasks[size - 1] = null;
-            size--;
-        } else {
+        if(number < 1 || number > tasks.size()){
             System.out.println("Invalid task number to remove.");
+        } else {
+            tasks.remove(number-1);
         }
     }
 }
