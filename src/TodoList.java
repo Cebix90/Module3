@@ -12,10 +12,7 @@ public class TodoList {
     }
 
     public void print() {
-        for (int i = 0; i < tasks.size(); i++){
-            System.out.println("Task " + (i+1) + ": " + tasks.get(i));
-        }
-        System.out.println();
+        tasks.forEach(System.out::println);
     }
 
     public void remove(int number){
